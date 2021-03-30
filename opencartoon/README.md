@@ -34,7 +34,7 @@ Code:
 
 Here is a checklist of the steps required to complete that project:
 
-- [ ] Importing the required modules
+- [x] Importing the required modules
 - [ ] Building a File Box to choose a particular file
 - [ ] Store an image
 - [ ] Transforming an image to grayscale

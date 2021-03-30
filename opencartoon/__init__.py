@@ -7,11 +7,7 @@ Package structure
     **__main__.py**:
         The Main of the Image Cartoonifyer with OpenCV
     **__init__.py**:
-        
-        
-About this module
------------------
-
+        OpenCartoon: The Image Cartoonifyer with OpenCV
 """
 
 __author__ = "Benoit Lapointe"
