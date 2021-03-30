@@ -110,6 +110,18 @@ def cartoonify(ImagePath):
     ReSized5 = cv2.resize(colorImage, (960, 540))
     # plt.imshow(ReSized5, cmap='gray')
 
+    # masking edged image with our "BEAUTIFY" image
+    #
+    # So, let’s combine the two specialties. This will be done using MASKING.
+    # We perform bitwise and on two images to mask them. Remember, images are
+    # just numbers?
+    #
+    # Yes, so that’s how we mask edged image on our “BEAUTIFY” image.
+    #
+    # This finally CARTOONIFY our image!
+    cartoonImage = cv2.bitwise_and(colorImage, colorImage, mask=getEdge)
+    ReSized6 = cv2.resize(cartoonImage, (960, 540))
+    # plt.imshow(ReSized6, cmap='gray')
 
 def upload():
     """Fileopenbox opens the box to choose file

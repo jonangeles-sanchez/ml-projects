@@ -39,9 +39,9 @@ Here is a checklist of the steps required to complete that project:
 - [x] Store an image
 - [x] Transforming an image to grayscale
 - [x] Smoothening a grayscale image
-- [ ] Retrieving the edges of an image
-- [ ] Preparing a Mask Image
-- [ ] Giving a Cartoon Effect
+- [x] Retrieving the edges of an image
+- [x] Preparing a Mask Image
+- [x] Giving a Cartoon Effect
 - [ ] Plotting all the transitions together
 - [ ] Functionally of save button
 - [ ] Making the main window
