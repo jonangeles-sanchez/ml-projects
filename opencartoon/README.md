@@ -1,6 +1,7 @@
 # Cartoonify an Image with OpenCV in Python
 
 ![img.png](img.png)
+![img_1.png](img_1.png)
 
 So today let’s head towards giving our pictures some cartoonic effects. This 
 project is all about building a photo cartoonifyer using Python and OpenCV
@@ -42,9 +43,9 @@ Here is a checklist of the steps required to complete that project:
 - [x] Retrieving the edges of an image
 - [x] Preparing a Mask Image
 - [x] Giving a Cartoon Effect
-- [ ] Plotting all the transitions together
-- [ ] Functionally of save button
-- [ ] Making the main window
-- [ ] Making the Cartoonify button in the main window
-- [ ] Making a Save button in the main window
-- [ ] Main function to build the tkinter window
+- [x] Plotting all the transitions together
+- [x] Functionally of save button
+- [x] Making the main window
+- [x] Making the Cartoonify button in the main window
+- [x] Making a Save button in the main window
+- [x] Main function to build the tkinter window
