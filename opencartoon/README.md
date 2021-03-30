@@ -35,10 +35,10 @@ Code:
 Here is a checklist of the steps required to complete that project:
 
 - [x] Importing the required modules
-- [ ] Building a File Box to choose a particular file
-- [ ] Store an image
-- [ ] Transforming an image to grayscale
-- [ ] Smoothening a grayscale image
+- [x] Building a File Box to choose a particular file
+- [x] Store an image
+- [x] Transforming an image to grayscale
+- [x] Smoothening a grayscale image
 - [ ] Retrieving the edges of an image
 - [ ] Preparing a Mask Image
 - [ ] Giving a Cartoon Effect

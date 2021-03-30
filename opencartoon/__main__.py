@@ -46,6 +46,28 @@ def cartoonify(ImagePath):
     ReSized1 = cv2.resize(originalmage, (960, 540))
     # plt.imshow(ReSized1, cmap='gray')
 
+    # converting an image to grayscale
+    # vtColor(image, flag) is a method in cv2 which is used to transform
+    # an image into the colour-space mentioned as ‘flag’. Here, our first
+    # step is to convert the image into grayscale. Thus, we use the BGR2GRAY
+    # flag. This returns the image in grayscale. A grayscale image is stored
+    # as grayScaleImage.
+    #
+    # After each transformation, we resize the resultant image using the
+    # resize() method in cv2 and display it using imshow() method. This is
+    # done to get more clear insights into every single transformation step.
+    grayScaleImage = cv2.cvtColor(originalmage, cv2.COLOR_BGR2GRAY)
+    ReSized2 = cv2.resize(grayScaleImage, (960, 540))
+    # plt.imshow(ReSized2, cmap='gray')
+
+    # applying median blur to smoothen an image
+    # To smoothen an image, we simply apply a blur effect. This is done using
+    # medianBlur() function. Here, the center pixel is assigned a mean value
+    # of all the pixels which fall under the kernel. In turn, creating a blur
+    # effect.
+    smoothGrayScale = cv2.medianBlur(grayScaleImage, 5)
+    ReSized3 = cv2.resize(smoothGrayScale, (960, 540))
+    # plt.imshow(ReSized3, cmap='gray')
 
 def upload():
     """Fileopenbox opens the box to choose file
