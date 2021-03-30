@@ -1,1 +1,29 @@
-# ml-projects
+# Mastering Machine Learning with simple projects
+
+In this project, we completed [machine learning sub-projects]
+(https://data-flair.training/blogs/machine-learning-project-ideas/) for
+beginners, intermediates, and experts to gain real-world experience of this
+growing technology in 2021.
+
+These machine learning project ideas helped us in learning all the
+practicalities that we needed to succeed in the industry.
+
+These machine learning projects were developed in Python.
+
+## Our 14 Demo projects
+
+- [ ] [Image Cartoonifyer with OpenCV](opencartoon)
+- [ ] Handwritten Digit Recognition using Python
+- [ ] Stock Price Prediction Application
+- [ ] Detecting Fake News Application
+- [ ] Color Detection using Pandas & OpenCV
+- [ ] Real-Time Face Mask Detector with Python, OpenCV
+- [ ] Music Genre Classification system
+- [ ] Sign Language Recognition using OpenCV
+- [ ] Speech Emotion Recognition with librosa
+- [ ] Handwritten Character Recognition with Neural Network
+- [ ] Breast Cancer Classification with Deep Learning
+- [ ] Gender and Age Detection with OpenCV
+- [ ] Image Segmentation with Machine Learning
+- [ ] Driver Drowsiness Detection System with OpenCV & Keras
+- [ ] Real-Time Human Detection & Counting

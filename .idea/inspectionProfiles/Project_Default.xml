@@ -1,0 +1,22 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="discuss.project.app.models.Forum.objects" />
+          <option value="discuss.project.app.models.Discussion.objects" />
+          <option value="discuss.project.project.urls.app" />
+          <option value="calor.project.app.models.Category.objects" />
+          <option value="calor.project.app.models.Customer.objects" />
+          <option value="calor.project.app.models.Fooditem.objects" />
+          <option value="calor.project.app.models.UserFooditem.objects" />
+          <option value="jopro.project.app.models.Candidates.objects" />
+          <option value="jopro.project.app.models.Company.objects" />
+          <option value="jopro.project.app.models.JobOffer.objects" />
+          <option value="jopro.project.app.models.Candidate.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
