@@ -61,6 +61,7 @@ def cartoonify(ImagePath):
     # plt.imshow(ReSized2, cmap='gray')
 
     # applying median blur to smoothen an image
+    #
     # To smoothen an image, we simply apply a blur effect. This is done using
     # medianBlur() function. Here, the center pixel is assigned a mean value
     # of all the pixels which fall under the kernel. In turn, creating a blur
@@ -69,8 +70,8 @@ def cartoonify(ImagePath):
     ReSized3 = cv2.resize(smoothGrayScale, (960, 540))
     # plt.imshow(ReSized3, cmap='gray')
 
-    # retrieving the edges for cartoon effect
-    # by using thresholding technique
+    # retrieving the edges for cartoon effect by using thresholding technique
+    #
     # Cartoon effect has two specialties:
     #
     # - Highlighted Edges
@@ -88,6 +89,26 @@ def cartoonify(ImagePath):
                                     cv2.THRESH_BINARY, 9, 9)
     ReSized4 = cv2.resize(getEdge, (960, 540))
     # plt.imshow(ReSized4, cmap='gray')
+
+    # applying bilateral filter to remove noise and keep edge sharp as required
+    #
+    # We finally work on the second specialty. We prepare a lightened color
+    # image that we mask with edges at the end to produce a cartoon image. We
+    # use bilateralFilter which removes the noise. It can be taken as
+    # smoothening of an image to an extent.
+    #
+    # The third parameter is the diameter of the pixel neighborhood, i.e,
+    # the number of pixels around a certain pixel which will determine its
+    # value. The fourth and Fifth parameter defines signmaColor and
+    # sigmaSpace. These parameters are used to give a sigma effect, i.e make
+    # an image look vicious and like water paint, removing the roughness in
+    # colors.
+    #
+    # Yes, it’s similar to BEAUTIFY or AI effect in cameras of modern mobile
+    # phones.
+    colorImage = cv2.bilateralFilter(originalmage, 9, 300, 300)
+    ReSized5 = cv2.resize(colorImage, (960, 540))
+    # plt.imshow(ReSized5, cmap='gray')
 
 
 def upload():
