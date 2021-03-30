@@ -69,6 +69,27 @@ def cartoonify(ImagePath):
     ReSized3 = cv2.resize(smoothGrayScale, (960, 540))
     # plt.imshow(ReSized3, cmap='gray')
 
+    # retrieving the edges for cartoon effect
+    # by using thresholding technique
+    # Cartoon effect has two specialties:
+    #
+    # - Highlighted Edges
+    # - Smooth colors
+    #
+    # In this step, we will work on the first specialty. Here, we will try to
+    # retrieve the edges and highlight them. This is attained by the adaptive
+    # thresholding technique. The threshold value is the mean of the
+    # neighborhood pixel values area minus the constant C. C is a constant
+    # that is subtracted from the mean or weighted sum of the neighborhood
+    # pixels. Thresh_binary is the type of threshold applied, and the
+    # remaining parameters determine the block size.
+    getEdge = cv2.adaptiveThreshold(smoothGrayScale, 255,
+                                    cv2.ADAPTIVE_THRESH_MEAN_C,
+                                    cv2.THRESH_BINARY, 9, 9)
+    ReSized4 = cv2.resize(getEdge, (960, 540))
+    # plt.imshow(ReSized4, cmap='gray')
+
+
 def upload():
     """Fileopenbox opens the box to choose file
 
