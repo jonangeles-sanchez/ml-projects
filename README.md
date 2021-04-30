@@ -13,7 +13,7 @@ These machine learning projects were developed in Python.
 ## Our 14 Demo projects
 
 - [x] [Image Cartoonifyer with OpenCV](opencartoon)
-- [ ] Handwritten Digit Recognition using Python
+- [x] [Handwritten Digit Recognition using Python](digitrecog)
 - [ ] Stock Price Prediction Application
 - [ ] Detecting Fake News Application
 - [ ] Color Detection using Pandas & OpenCV
