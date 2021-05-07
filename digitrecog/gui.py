@@ -19,9 +19,8 @@ import numpy as np
 from PIL import ImageGrab, ImageOps
 from keras.models import load_model
 
-# model = load_model('mnist10.h5')
-# model = load_model('mnist15.h5')
-model = load_model('mnist20.h5')
+model = load_model('mnist16.h5')
+# model = load_model('mnist20.h5')
 
 
 def predict_digit(img):
