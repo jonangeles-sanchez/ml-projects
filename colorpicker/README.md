@@ -21,15 +21,15 @@ we define each color value within a range of 0 to 255. So in how many ways
 we can define a color? The answer is 256*256*256 = 16,581,375. There are 
 approximately 16.5 million different ways to represent a color. In our 
 dataset, we need to map each color’s values with their corresponding names. 
-But don’t worry, we don’t need to map all the values.
+But, we don’t need to map all the values here.
 
 ## Prerequisite
 
-Before starting with this Python project with source code, you should be 
-familiar with the computer vision library of Python that is OpenCV and Pandas.
+Before starting with this Python project we needed to familiarize with the 
+computer vision library of Python that is OpenCV.
 
-OpenCV, Pandas, and numpy are the Python packages that are necessary for 
-this project in Python. To install them, simply run this pip command in your 
+OpenCV, Pandas, and numpy are the Python packages that were necessary for 
+this project in Python. To install them, we simply ran this command in the 
 terminal:
     
     pip install opencv-python numpy pandas
