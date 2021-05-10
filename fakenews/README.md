@@ -49,4 +49,4 @@ vector.
 
 ## Project Plan
 
-- [x] Code the project in jupiter notebook
+- [x] Code the project in Jupyter notebook
