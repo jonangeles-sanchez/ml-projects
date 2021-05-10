@@ -27,7 +27,7 @@ server = app.server
 
 data, x_train_data, y_train_data, valid_data = prepare_data()
 
-model = load_model("saved_lstm_model.h5")
+model = load_model("saved_fb_lstm_model.h5")
 
 # Take a sample of a dataset to make stock price predictions using the model
 closing_price = predict_from_sample(model, data, valid_data)
@@ -40,7 +40,7 @@ app.layout = html.Div([
 
     dcc.Tabs(id="tabs", children=[
 
-        dcc.Tab(label='NSE-TATAGLOBAL Predictions', children=[
+        dcc.Tab(label='Facebook Predictions', children=[
             html.Div([
                 html.H2("Actual closing price", style={"textAlign": "center"}),
                 dcc.Graph(

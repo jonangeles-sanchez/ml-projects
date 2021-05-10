@@ -23,7 +23,8 @@ scaler = MinMaxScaler(feature_range=(0, 1))
 
 
 def read_data():
-    results = pd.read_csv("NSE-Tata-Global-Beverages-Limited.csv")
+    results = pd.read_csv("stock_data.csv")
+    results = results[results.Stock == "FB"]
     return results
 
 
@@ -52,8 +53,8 @@ def filter_data(in_df, out_df):
 
 def normalize(df):
     values = df.values
-    train = values[0:987, :]
-    valid = values[987:, :]
+    train = values[0:int(len(values)*.9), :]
+    valid = values[int(len(values)*.9):, :]
     scaled = scaler.fit_transform(values)
     x_train, y_train = [], []
     for i in range(60, len(train)):
@@ -79,8 +80,8 @@ def predict_from_sample(model, df, valid):
 
 
 def prepare_plot(prediction, df):
-    train = df[:987]
-    valid = df[987:]
+    train = df[:int(len(df)*.9)]
+    valid = df[int(len(df)*.9):]
     prediction_df = pd.DataFrame(prediction, columns=["Predictions"],
                                  index=valid.index)
     valid_prediction_df = pd.concat([df, prediction_df])

@@ -59,7 +59,7 @@ if __name__ == '__main__':
     # Take a sample of a dataset to make stock price predictions using the model
     closing_price = predict_from_sample(lstm_model, data, valid_data)
     # Save the LSTM model
-    lstm_model.save("saved_lstm_model.h5")
+    lstm_model.save("saved_fb_lstm_model.h5")
     # Visualize the predicted stock costs with actual stock costs
     train_data, valid_data_df = prepare_plot(closing_price, data)
     plot_results(train_data, valid_data_df)
