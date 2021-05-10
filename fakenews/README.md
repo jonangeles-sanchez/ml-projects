@@ -17,14 +17,14 @@ news. Using sklearn, we build a TfidfVectorizer on our dataset. Then, we
 initialize a PassiveAggressive Classifier and fit the model. In the end, the 
 accuracy score and the confusion matrix tell us how well our model fares.
 
-The dataset we’ll use for this python project- we’ll call it news.csv. This 
+The dataset we used for this python project is call news.csv. This 
 dataset has a shape of 7796×4. The first column identifies the news, the 
 second and third are the title and text, and the fourth column has labels 
 denoting whether the news is REAL or FAKE.
 
 ## Prerequisite
 
-What is a TfidfVectorizer?
+### What is a TfidfVectorizer?
 
 - TF (Term Frequency): The number of times a word appears in a document is 
   its Term Frequency. A higher value means a term appears more often than 
