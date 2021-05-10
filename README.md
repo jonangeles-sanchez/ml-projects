@@ -1,7 +1,6 @@
 # Mastering Machine Learning with simple projects
 
-In this project, we completed [machine learning sub-projects]
-(https://data-flair.training/blogs/machine-learning-project-ideas/) for
+In this project, we completed some machine learning sub-projects for
 beginners, intermediates, and experts to gain real-world experience of this
 growing technology in 2021.
 
@@ -14,7 +13,7 @@ These machine learning projects were developed in Python.
 
 - [x] [Image Cartoonifyer with OpenCV](opencartoon)
 - [x] [Handwritten Digit Recognition using Python](digitrecog)
-- [ ] Stock Price Prediction Application
+- [x] [Stock Price Prediction Application](stockpred)
 - [ ] Detecting Fake News Application
 - [ ] Color Detection using Pandas & OpenCV
 - [ ] Real-Time Face Mask Detector with Python, OpenCV
