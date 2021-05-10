@@ -20,7 +20,7 @@ from dash.dependencies import Input, Output
 from tensorflow.keras.models import load_model
 
 from stockpred.__main__ import prepare_data
-from stockpred.train import predict_from_sample, prepare_plot
+from stockpred.datamodel import predict_from_sample, prepare_plot
 
 app = dash.Dash()
 server = app.server

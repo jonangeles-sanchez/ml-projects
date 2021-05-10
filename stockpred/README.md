@@ -16,10 +16,24 @@ Datasets
   Limited, National Stock Exchange of India: Tata Global Dataset
 - To develop the dashboard for stock analysis we will use another stock 
   dataset with multiple stocks like Apple, Microsoft, Facebook: Stocks Dataset
+
 ## Prerequisite
 
-TODO: Write Prerequisite instructions
+The interesting Python project requires you to have basic knowledge of 
+Python programming, deep learning with Keras library. Also dash and 
+plotly library for building the frontend through a webapp.
+
+We need to install those necessary libraries for this project:
+- Numpy, Pandas - for data processing
+- TensorFlow - for NN modeling (with LSTM)
+- Keras - for DNN modeling
+- Matplotlib, Dash, Plotly - For plotting results
+
+using this command:
+    pip install numpy, pandas, tensorflow, keras, dash, plotly
 
 ## Project Plan
 
-- [ ] First step
+- [x] Code model
+- [x] Code Dashboard
+- [x] Cleanup and document model

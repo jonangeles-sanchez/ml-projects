@@ -15,7 +15,7 @@ __version__ = "1.0.0"
 from tensorflow.keras.layers import Dense, LSTM
 from tensorflow.keras.models import Sequential
 
-from stockpred.train import (
+from stockpred.datamodel import (
     read_data, plot_price_history, sort_data,
     filter_data, normalize, predict_from_sample, plot_results, prepare_plot
 )

@@ -1,7 +1,6 @@
 # Mastering Machine Learning with simple projects
 
-In this project, we completed [machine learning sub-projects]
-(https://data-flair.training/blogs/machine-learning-project-ideas/) for
+In this project, we completed some machine learning sub-projects for
 beginners, intermediates, and experts to gain real-world experience of this
 growing technology in 2021.
 

@@ -1,20 +1,15 @@
-"""$Module_title
+"""The Data Models processing of the Stock Prediction app
 -----------------------------
 
-Package structure
------------------
-*$Package/*
-    **$FILE_NAME**:
-        $Module_title
-        
-About this module
------------------
-$About_this_module
+About this Module
+------------------
+The goal of this module is to prepare data, predict from models and plot data
+from prediction results.
 """
 
 __author__ = "Benoit Lapointe"
-__date__ = "2021-05-09"
-__copyright__ = "Copyright 2021, Benoit Lapointe"
+__date__ = "2021-05-10"
+__copyright__ = "Copyright 2021, labesoft"
 __version__ = "1.0.0"
 
 import numpy as np
