@@ -83,12 +83,16 @@ def predict_from_sample(model, df, valid):
     return prediction
 
 
-def plot_results(prediction, df):
+def prepare_plot(prediction, df):
     train = df[:987]
     valid = df[987:]
     prediction_df = pd.DataFrame(prediction, columns=["Predictions"],
                                  index=valid.index)
-    merged_data = pd.concat([valid, prediction_df])
-    plt.plot(train["Close"])
-    plt.plot(merged_data[["Close", "Predictions"]])
+    valid_prediction_df = pd.concat([df, prediction_df])
+    return train, valid_prediction_df
+
+
+def plot_results(plot1, plot2):
+    plt.plot(plot1["Close"])
+    plt.plot(plot2[["Close", "Predictions"]])
     plt.show()

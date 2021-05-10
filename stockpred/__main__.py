@@ -17,7 +17,7 @@ from tensorflow.keras.models import Sequential
 
 from stockpred.train import (
     read_data, plot_price_history, sort_data,
-    filter_data, normalize, predict_from_sample, plot_results
+    filter_data, normalize, predict_from_sample, plot_results, prepare_plot
 )
 
 
@@ -33,12 +33,11 @@ def create_model(x_train, y_train):
     model.add(LSTM(units=50))
     model.add(Dense(1))
     model.compile(loss='mean_squared_error', optimizer='adam')
-    model.fit(x_train, y_train, epochs=1, batch_size=1, verbose=2)
+    model.fit(x_train, y_train, epochs=5, batch_size=1)
     return model
 
 
-if __name__ == '__main__':
-    """Main entry point of stockpred"""
+def prepare_data():
     # Read the dataset
     raw_data = read_data()
     # Analyze the closing prices from dataframe
@@ -48,7 +47,13 @@ if __name__ == '__main__':
     # Filter Date and Close columns
     data = filter_data(sorted_data, empty_data)
     # Normalize the new filtered dataset
-    x_train_data, y_train_data, valid_data = normalize(data)
+    x_train, y_train, valid = normalize(data)
+    return data, x_train, y_train, valid
+
+
+if __name__ == '__main__':
+    """Main entry point of stockpred"""
+    data, x_train_data, y_train_data, valid_data = prepare_data()
     # Build lstm Model
     lstm_model = create_model(x_train_data, y_train_data)
     # Take a sample of a dataset to make stock price predictions using the model
@@ -56,4 +61,5 @@ if __name__ == '__main__':
     # Save the LSTM model
     lstm_model.save("saved_lstm_model.h5")
     # Visualize the predicted stock costs with actual stock costs
-    plot_results(closing_price, data)
+    train_data, valid_data_df = prepare_plot(closing_price, data)
+    plot_results(train_data, valid_data_df)

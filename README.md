@@ -14,7 +14,7 @@ These machine learning projects were developed in Python.
 
 - [x] [Image Cartoonifyer with OpenCV](opencartoon)
 - [x] [Handwritten Digit Recognition using Python](digitrecog)
-- [ ] Stock Price Prediction Application
+- [x] [Stock Price Prediction Application](stockpred)
 - [ ] Detecting Fake News Application
 - [ ] Color Detection using Pandas & OpenCV
 - [ ] Real-Time Face Mask Detector with Python, OpenCV
