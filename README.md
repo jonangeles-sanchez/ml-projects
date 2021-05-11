@@ -16,7 +16,7 @@ These machine learning projects were developed in Python.
 - [x] [Stock Price Prediction Application](stockpred)
 - [x] [Detecting Fake News Application](fakenews)
 - [x] [Color Detection using Pandas & OpenCV](colorpicker)
-- [ ] Real-Time Face Mask Detector with Python, OpenCV
+- [x] [Real-Time Face Mask Detector with Python, OpenCV](facemask)
 - [ ] Music Genre Classification system
 - [ ] Sign Language Recognition using OpenCV
 - [ ] Speech Emotion Recognition with librosa
