@@ -4,7 +4,8 @@
 ![img.png](img.png)
 
 During pandemic COVID-19, WHO has made wearing masks compulsory to protect 
-against this deadly virus.
+against this deadly virus. We have made an app detecting if we are wearing
+one or not.
 
 ## About the project
 
