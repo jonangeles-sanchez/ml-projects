@@ -130,3 +130,6 @@ dmypy.json
 
 # Facemask
 facemask/**/*.jp*g
+
+# Whatmusic
+whatmusic/genres
