@@ -71,4 +71,4 @@ signals into smaller frames. Each frame is around 20-40 ms long
 - [x] Code the application
 - [x] Train the model
 - [x] Evaluate the model
-- [ ] Document the code
+- [x] Document the code
