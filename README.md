@@ -17,7 +17,7 @@ These machine learning projects were developed in Python.
 - [x] [Detecting Fake News Application](fakenews)
 - [x] [Color Detection using Pandas & OpenCV](colorpicker)
 - [x] [Real-Time Face Mask Detector with Python, OpenCV](facemask)
-- [ ] Music Genre Classification system
+- [x] [Music Genre Classification system](whatmusic)
 - [ ] Sign Language Recognition using OpenCV
 - [ ] Speech Emotion Recognition with librosa
 - [ ] Handwritten Character Recognition with Neural Network
