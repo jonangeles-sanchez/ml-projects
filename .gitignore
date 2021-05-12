@@ -133,3 +133,6 @@ facemask/**/*.jp*g
 
 # Whatmusic
 whatmusic/genres
+
+# Sign gesture
+signlang/**/*.jp*g
