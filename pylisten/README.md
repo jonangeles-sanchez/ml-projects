@@ -49,8 +49,8 @@ modular functions, and readable code.
 
 ## Project Plan
 
-- [ ] Install the libraries
-- [ ] Code the project
-- [ ] Train the model
-- [ ] Validate the model
-- [ ] Document the code
+- [x] Install the libraries
+- [x] Code the project
+- [x] Train the model
+- [x] Validate the model
+- [x] Document the code

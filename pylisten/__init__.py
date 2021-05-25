@@ -6,6 +6,8 @@ Project structure
 *pylisten/*
     **__init__.py**:
         PyListen: The Speech Emotion Recognition Application with librosa
+    **__main__.py**:
+        The Main of the Speech Emotion Recognition Application
 
 About this Module
 ------------------

@@ -26,6 +26,7 @@ from sklearn.neural_network import MLPClassifier
 
 class PyListen:
     """The model of the Speech Emotion Recognition system"""
+
     def __init__(self):
         """Initialize emotions in the model"""
         self.emotions = {
