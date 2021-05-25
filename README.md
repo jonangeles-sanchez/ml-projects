@@ -19,7 +19,7 @@ These machine learning projects were developed in Python.
 - [x] [Real-Time Face Mask Detector with Python, OpenCV](facemask)
 - [x] [Music Genre Classification system](whatmusic)
 - [x] [Sign Language Recognition using OpenCV](signlang)
-- [ ] Speech Emotion Recognition with librosa
+- [x] [Speech Emotion Recognition with librosa](pylisten)
 - [ ] Handwritten Character Recognition with Neural Network
 - [ ] Breast Cancer Classification with Deep Learning
 - [ ] Gender and Age Detection with OpenCV
