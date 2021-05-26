@@ -136,3 +136,7 @@ whatmusic/genres
 
 # Sign gesture
 signlang/**/*.jp*g
+
+# Character recognition
+alpharecog/data/*.csv
+alpharecog/data/*.zip*
