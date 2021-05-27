@@ -6,6 +6,8 @@ Project structure
 *cancerdetect/*
     **__init__.py**:
         Breast Cancer Classification with Deep Learning
+    **__main__.py**:
+        The main of Breast Cancer Classification with Deep Learning
 """
 
 __author__ = "Benoit Lapointe"
