@@ -15,14 +15,14 @@ __date__ = "2021-05-27"
 __copyright__ = "Copyright 2021, labesoft"
 __version__ = "1.0.0"
 
-import os
+from pathlib import Path
 
-INPUT_DATASET = "data/orig"
+INPUT_DATASET = Path("data", "orig")
 
-BASE_PATH = "data/idc"
-TRAIN_PATH = os.path.sep.join([BASE_PATH, "training"])
-VAL_PATH = os.path.sep.join([BASE_PATH, "validation"])
-TEST_PATH = os.path.sep.join([BASE_PATH, "testing"])
+BASE_PATH = Path("data", "idc")
+TRAIN_PATH = BASE_PATH.joinpath("training")
+VAL_PATH = BASE_PATH.joinpath("validation")
+TEST_PATH = BASE_PATH.joinpath("testing")
 
 TRAIN_SPLIT = 0.8
 VAL_SPLIT = 0.1

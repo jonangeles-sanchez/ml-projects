@@ -12,6 +12,8 @@ __date__ = "2021-05-27"
 __copyright__ = "Copyright 2021, labesoft"
 __version__ = "1.0.0"
 
+from cancerdetect import build_dataset
+
 if __name__ == '__main__':
     """Main entry point of cancerdetect"""
-    pass
+    build_dataset.run()
