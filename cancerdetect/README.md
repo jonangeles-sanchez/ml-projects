@@ -50,8 +50,8 @@ Here are the library needed for the project:
 
 ## Project Plan
 
-- [ ] Download the dataset
-- [ ] Create the configurations
+- [x] Download the dataset
+- [x] Create the configurations
 - [ ] Build the dataset
 - [ ] Create the model
 - [ ] Train the model
