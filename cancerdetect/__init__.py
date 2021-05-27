@@ -10,6 +10,8 @@ Project structure
         The main of Breast Cancer Classification with Deep Learning
     **config.py**:
         The configurations of Breast Cancer Classification with Deep Learning
+    **model.py**:
+        The model of the Breast Cancer Classification with Deep Learning
 """
 
 __author__ = "Benoit Lapointe"

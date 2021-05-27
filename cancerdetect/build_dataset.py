@@ -34,7 +34,9 @@ __version__ = "1.0.0"
 import os
 import random
 import shutil
+from pathlib import Path
 
+import pandas as pd
 from imutils import paths
 
 import config
@@ -77,3 +79,23 @@ def run():
 
             new_path = label_path.joinpath(file)
             shutil.copy2(path, new_path)
+
+def split():
+    config.BASE_PATH.mkdir(exist_ok=True)
+    original_paths = pd.DataFrame(paths.list_images(config.INPUT_DATASET),
+                                  columns=['images'])
+    train = original_paths.sample(frac=config.TRAIN_SPLIT, random_state=7)
+
+    # Test set
+    test = original_paths.drop(train.index)
+    test.to_csv((Path(config.BASE_PATH, 'test.csv')))
+
+    # Valid set
+    valid = train.sample(frac=config.VAL_SPLIT, random_state=7)
+    valid.to_csv(Path(config.BASE_PATH, 'valid.csv'))
+
+    # Train set
+    train = train.drop(valid.index)
+    train.to_csv((Path(config.BASE_PATH, 'train.csv')))
+
+    return train, valid, test
