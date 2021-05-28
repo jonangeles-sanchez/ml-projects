@@ -60,4 +60,5 @@ part of the standard Python library.
 
 ## Project Plan
 
-- [ ] First step
+- [x] Copy the code in main
+- [x] Test a working version
