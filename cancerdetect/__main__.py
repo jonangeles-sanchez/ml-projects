@@ -190,7 +190,7 @@ def extract_labels(train_df):
     :param train_df: the training set
     :return: a set of the extracted class labels
     """
-    return train_df['images'].apply(lambda x: str(x.split(os.path.sep)[-2]))
+    return train_df['images'].apply(lambda x: str(x.split_df_to_csv(os.path.sep)[-2]))
 
 
 def read(csv):

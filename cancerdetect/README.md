@@ -57,3 +57,4 @@ Here are the library needed for the project:
 - [x] Build the dataset
 - [x] Create the model
 - [x] Train the model
+- [x] Test model

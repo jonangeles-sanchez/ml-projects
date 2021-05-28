@@ -1,15 +1,9 @@
 """The dataset builder of the Breast Cancer Classification with Deep Learning
 -----------------------------
 
-Project structure
------------------
-*cancerdetect/*
-    **build_dataset.py**:
-        The dataset builder of the Breast Cancer Classification with Deep Learning
-
 About this Module
 ------------------
-In this, we’ll import from config, imutils, random, shutil, and os. We’ll
+In this, we’ll import from config, imutils, random, shutil, and os. We
 build a list of original paths to the images, then shuffle the list. Then,
 we calculate an index by multiplying the length of this list by 0.8 so we can
 slice this list to get sublists for the training and testing datasets. Next,
@@ -42,7 +36,11 @@ from imutils import paths
 import config
 
 
-def run():
+def split_image_to_dir():
+    """This split dataset through copying image into folder
+
+    This is very ineffective.
+    """
     original_paths = list(paths.list_images(config.INPUT_DATASET))
     random.seed(7)
     random.shuffle(original_paths)
@@ -69,7 +67,7 @@ def run():
             os.makedirs(base_path)
 
         for path in orig_paths:
-            file = path.split(os.path.sep)[-1]
+            file = path.split_df_to_csv(os.path.sep)[-1]
             label = file[-5:-4]
 
             label_path = base_path.joinpath(label)
@@ -80,7 +78,15 @@ def run():
             new_path = label_path.joinpath(file)
             shutil.copy2(path, new_path)
 
-def split():
+
+def split_df_to_csv():
+    """Splits image path to dataframes then exports the content to csv
+
+    This creates a test set, a validation set and a train set, it also returns
+    the dataframes created.
+
+    :return: a tuple of the train, validation and test dataframe
+    """
     config.BASE_PATH.mkdir(exist_ok=True)
     original_paths = pd.DataFrame(paths.list_images(config.INPUT_DATASET),
                                   columns=['images'])
