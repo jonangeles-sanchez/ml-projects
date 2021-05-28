@@ -13,6 +13,7 @@ __copyright__ = "Copyright 2021, labesoft"
 __version__ = "1.0.0"
 
 import os
+from collections import namedtuple
 from pathlib import Path
 
 import matplotlib
@@ -32,38 +33,39 @@ BATCH_SIZE = 32
 INIT_LR = 1e-2
 IMAGE_SIZE = 48
 MODEL_FILENAME = 'model_cancer.h5'
-NUM_EPOCHS = 40
+NUM_EPOCHS = 10
+
+Data = namedtuple('Data', ['gen', 'size'])
 
 
-def train():
+def train_model():
     """Train the model, plot epochs and evaluate the results"""
-    class_weight, train_gen, val_gen = prepare_train_data()
-    cancer_model, m = create_model(class_weight, train_gen, val_gen)
+    class_weight, train, val = prepare_train_data()
+    cancer_model, m = create_model(class_weight, train, val)
     plot(m)
-    test_gen = prepare_test_data()
-    evaluate(cancer_model, test_gen)
+    evaluate(cancer_model, prepare_test_data())
 
 
-def evaluate(cancer_model, test_gen):
+def evaluate(cancer_model, test):
     """Evaluate the cancer detection model
 
     Based on confusion matrix, accuracy, specificity and sensitivity
 
     :param cancer_model: the model to evaluate
-    :param test_gen: the test image iterator
+    :param test: the test image iterator with data size
     """
     print("Now evaluating the model")
     pred_indices = cancer_model.predict(
-        test_gen, steps=(len(test_gen) // BATCH_SIZE) + 1
+        test.gen, steps=(test.size // BATCH_SIZE) + 1
     )
     print(
         classification_report(
-            test_gen.classes,
+            test.gen.classes,
             np.argmax(pred_indices, axis=1),
-            target_names=test_gen.class_indices.keys()
+            target_names=test.gen.class_indices.keys()
         )
     )
-    cm = confusion_matrix(test_gen.classes, pred_indices)
+    cm = confusion_matrix(test.gen.classes, pred_indices)
     print(cm)
     print(f'Accuracy: {(cm[0, 0] + cm[1, 1]) / sum(sum(cm))}')
     print(f'Specificity: {cm[1, 1] / (cm[1, 0] + cm[1, 1])}')
@@ -91,12 +93,12 @@ def plot(m):
     plt.savefig('plot.png')
 
 
-def create_model(class_weight, train_gen, val_gen):
+def create_model(class_weight, train, val):
     """Build, compile and fit the cancer detection model
 
     :param class_weight: the weight dict of the 0 and 1 classes
-    :param train_gen: the train set image iterator
-    :param val_gen: the validation set image iterator
+    :param train: the train set image iterator with data size
+    :param val: the validation set image iterator with data size
     :return: a tuple of the model and the model training history
     """
     cancer_model = model.build(
@@ -106,10 +108,10 @@ def create_model(class_weight, train_gen, val_gen):
     cancer_model.compile(loss="binary_crossentropy", optimizer=opt,
                          metrics=["accuracy"])
     m = cancer_model.fit(
-        train_gen,
-        steps_per_epoch=len(train_gen) // BATCH_SIZE,
-        validation_data=val_gen,
-        validation_steps=len(val_gen) // BATCH_SIZE,
+        train.gen,
+        steps_per_epoch=train.size // BATCH_SIZE,
+        validation_data=val.gen,
+        validation_steps=val.size // BATCH_SIZE,
         class_weight=class_weight,
         epochs=NUM_EPOCHS
     )
@@ -161,7 +163,12 @@ def prepare_train_data():
         batch_size=BATCH_SIZE
     )
 
-    return class_weight, train_gen, val_gen
+    # Return weight and Data Tuples
+    return (
+        class_weight,
+        Data(train_gen, len(train_df)),
+        Data(val_gen, len(val_df))
+    )
 
 
 def prepare_test_data():
@@ -170,7 +177,6 @@ def prepare_test_data():
     :return: the test set iterator
     """
     test_df = read('test.csv')
-    test_df['labels'] = extract_labels(test_df)
     test_gen = ImageDataGenerator(rescale=1 / 255.0).flow_from_dataframe(
         test_df,
         x_col='images',
@@ -181,7 +187,7 @@ def prepare_test_data():
         shuffle=False,
         batch_size=BATCH_SIZE
     )
-    return test_gen
+    return Data(test_gen, len(test_df))
 
 
 def extract_labels(train_df):
@@ -207,12 +213,12 @@ def read(csv):
 def test_model():
     """Test a breast cancer detection model loaded from file"""
     cancer_model = load_model(MODEL_FILENAME)
-    test_gen = prepare_test_data()
-    evaluate(cancer_model, test_gen)
+    test = prepare_test_data()
+    evaluate(cancer_model, test)
 
 
 if __name__ == '__main__':
     """Main entry point of cancerdetect"""
     # build_dataset.split()
-    train()
+    train_model()
     # test_model()
