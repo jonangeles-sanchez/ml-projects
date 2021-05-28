@@ -138,5 +138,5 @@ whatmusic/genres
 signlang/**/*.jp*g
 
 # Character recognition
-alpharecog/data/*.csv
-alpharecog/data/*.zip*
+# Breast cancer detection
+*/data
