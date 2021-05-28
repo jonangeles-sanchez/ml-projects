@@ -6,6 +6,8 @@ Project structure
 *genderage/*
     **__init__.py**:
         Gender and Age Detection with OpenCV
+    **__main__.py**:
+        The main of Gender and Age Detection with OpenCV
 """
 
 __author__ = "Benoit Lapointe"

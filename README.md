@@ -22,7 +22,13 @@ These machine learning projects were developed in Python.
 - [x] [Speech Emotion Recognition with librosa](pylisten)
 - [x] [Handwritten Character Recognition with Neural Network](alpharecog)
 - [x] [Breast Cancer Classification with Deep Learning](cancerdetect)
-- [ ] Gender and Age Detection with OpenCV
+- [ ] [Gender and Age Detection with OpenCV](genderage)
 - [ ] Image Segmentation with Machine Learning
 - [ ] Driver Drowsiness Detection System with OpenCV & Keras
 - [ ] Real-Time Human Detection & Counting
+
+## Prerequisite
+
+For all of these projects we are using an anaconda env which can be 
+described by the [environment.yml](environment.yml) included in this repository
+which includes more than what is required for each projects.

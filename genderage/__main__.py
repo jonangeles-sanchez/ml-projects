@@ -1,12 +1,6 @@
 """The main of Gender and Age Detection with OpenCV
 -----------------------------
 
-Project structure
------------------
-*genderage/*
-    **__main__.py**:
-        The main of Gender and Age Detection with OpenCV
-
 About this Module
 ------------------
 The goal of this module is to initiate the run of the Gender and Age Detection
