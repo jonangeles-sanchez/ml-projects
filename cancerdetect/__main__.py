@@ -55,13 +55,14 @@ def evaluate(cancer_model, test):
     :param test: the test image iterator with data size
     """
     print("Now evaluating the model")
-    pred_indices = cancer_model.predict(
-        test.gen, steps=(test.size // BATCH_SIZE) + 1
+    pred_indices = np.argmax(
+        cancer_model.predict(test.gen, steps=(test.size // BATCH_SIZE) + 1),
+        axis=1
     )
     print(
         classification_report(
             test.gen.classes,
-            np.argmax(pred_indices, axis=1),
+            pred_indices,
             target_names=test.gen.class_indices.keys()
         )
     )
@@ -220,5 +221,5 @@ def test_model():
 if __name__ == '__main__':
     """Main entry point of cancerdetect"""
     # build_dataset.split()
-    train_model()
-    # test_model()
+    # train_model()
+    test_model()
