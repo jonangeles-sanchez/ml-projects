@@ -32,7 +32,7 @@ BATCH_SIZE = 32
 INIT_LR = 1e-2
 IMAGE_SIZE = 48
 MODEL_FILENAME = 'model_cancer.h5'
-NUM_EPOCHS = 2
+NUM_EPOCHS = 40
 
 
 def train():
@@ -190,7 +190,7 @@ def extract_labels(train_df):
     :param train_df: the training set
     :return: a set of the extracted class labels
     """
-    return train_df['images'].apply(lambda x: str(x.split_df_to_csv(os.path.sep)[-2]))
+    return train_df['images'].apply(lambda x: str(x.split(os.path.sep)[-2]))
 
 
 def read(csv):

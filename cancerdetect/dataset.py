@@ -67,7 +67,7 @@ def split_image_to_dir():
             os.makedirs(base_path)
 
         for path in orig_paths:
-            file = path.split_df_to_csv(os.path.sep)[-1]
+            file = path.split(os.path.sep)[-1]
             label = file[-5:-4]
 
             label_path = base_path.joinpath(label)
