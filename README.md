@@ -20,8 +20,8 @@ These machine learning projects were developed in Python.
 - [x] [Music Genre Classification system](whatmusic)
 - [x] [Sign Language Recognition using OpenCV](signlang)
 - [x] [Speech Emotion Recognition with librosa](pylisten)
-- [ ] Handwritten Character Recognition with Neural Network
-- [ ] Breast Cancer Classification with Deep Learning
+- [x] [Handwritten Character Recognition with Neural Network](alpharecog)
+- [x] [Breast Cancer Classification with Deep Learning](cancerdetect)
 - [ ] Gender and Age Detection with OpenCV
 - [ ] Image Segmentation with Machine Learning
 - [ ] Driver Drowsiness Detection System with OpenCV & Keras
