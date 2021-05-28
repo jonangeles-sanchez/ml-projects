@@ -1,6 +1,8 @@
 # Breast Cancer Classification with Deep Learning
 
 ![img.png](img.png)
+![plot.png](plot.png)
+
 
 The goal of this project is to build a breast cancer classifier on an IDC 
 dataset that can accurately classify a histology image as benign or malignant.
@@ -53,5 +55,5 @@ Here are the library needed for the project:
 - [x] Download the dataset
 - [x] Create the configurations
 - [x] Build the dataset
-- [ ] Create the model
-- [ ] Train the model
+- [x] Create the model
+- [x] Train the model
