@@ -140,3 +140,6 @@ signlang/**/*.jp*g
 # Character recognition
 # Breast cancer detection
 */data
+
+# imsegment 250M file
+imsegment/mask_rcnn_coco.h5
