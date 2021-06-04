@@ -33,8 +33,11 @@ IMAGE_FILE = BASE_DIR.joinpath('office-2539844_1920.jpg')
 
 
 class InferenceConfig(coco.CocoConfig):
-    # Setting batch size equal to 1 since we'll be running inference on
-    # one image at a time. Batch size = GPU_COUNT * IMAGES_PER_GPU
+    """The inference configuration limiting memory and gpu uses
+
+    Setting batch size equal to 1 since we'll be running inference on one
+    image at a time. Batch size = GPU_COUNT * IMAGES_PER_GPU
+    """
     GPU_COUNT = 1
     IMAGES_PER_GPU = 1
     gpus = tf.config.list_physical_devices('GPU')
@@ -60,12 +63,12 @@ if __name__ == '__main__':
     parser.add_argument('--image', default=str(IMAGE_FILE))
     args = parser.parse_args()
 
+    # Create model objects in inference mode.
     config = InferenceConfig()
     config.display()
-
-    # Create model objects in inference mode.
-    model = mrcnnmodel.MaskRCNN(mode="inference",
-                                model_dir=str(MODEL_DIR), config=config)
+    model = mrcnnmodel.MaskRCNN(
+        mode="inference", model_dir=str(MODEL_DIR), config=config
+    )
     model.load_weights(str(MODEL_FILE), by_name=True)
 
     # Image to segment
@@ -80,8 +83,9 @@ if __name__ == '__main__':
     r = results[0]
     with open(str(CLASSES_FILE)) as f:
         class_names = {int(k): v for k, v in json.load(f).items()}
-    visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'],
-                                class_names=class_names)
+    visualize.display_instances(
+        image, r['rois'], r['masks'], r['class_ids'], class_names=class_names
+    )
     mask = r['masks']
     mask = mask.astype(int)
     print(mask.shape)
