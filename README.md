@@ -23,7 +23,7 @@ These machine learning projects were developed in Python.
 - [x] [Handwritten Character Recognition with Neural Network](alpharecog)
 - [x] [Breast Cancer Classification with Deep Learning](cancerdetect)
 - [x] [Gender and Age Detection with OpenCV](genderage)
-- [ ] Image Segmentation with Machine Learning
+- [x] [Image Segmentation with Machine Learning](imsegment)
 - [ ] Driver Drowsiness Detection System with OpenCV & Keras
 - [ ] Real-Time Human Detection & Counting
 
