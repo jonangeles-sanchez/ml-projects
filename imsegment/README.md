@@ -93,7 +93,7 @@ the libraries needed:
 
 ## Project Plan
 
-- [x] Clone [Mask R-CNN Github Repository](https://github.com/matterport/Mask_RCNN.git)
+- [x] Clone our fork [Mask R-CNN Github Repository](https://github.com/labesoft/Mask_RCNN.git)
 - [x] [Install Library Dependencies](#how-to-install-library-dependencies)
 - [x] Download [Pre Trained Weights](https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5)
 - [x] Importing the libraries in the main code
