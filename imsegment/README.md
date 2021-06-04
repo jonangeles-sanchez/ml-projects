@@ -93,14 +93,14 @@ the libraries needed:
 
 ## Project Plan
 
-- [ ] Clone [Mask R-CNN Github Repository](https://github.com/matterport/Mask_RCNN.git)
-- [ ] [Install Library Dependencies](#how-to-install-library-dependencies)
-- [ ] Download [Pre Trained Weights](https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5)
-- [ ] Importing the libraries in the main code
-- [ ] Code paths constants to dir/files of the project
-- [ ] Create the inference function
-- [ ] Code the prediction algorithm with the loaded model
-- [ ] Adapt Mask R-CNN to our code base
+- [x] Clone [Mask R-CNN Github Repository](https://github.com/matterport/Mask_RCNN.git)
+- [x] [Install Library Dependencies](#how-to-install-library-dependencies)
+- [x] Download [Pre Trained Weights](https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5)
+- [x] Importing the libraries in the main code
+- [x] Code paths constants to dir/files of the project
+- [x] Create the inference function
+- [x] Code the prediction algorithm with the loaded model
+- [x] Adapt Mask R-CNN to our code base
 
 ## How to install library dependencies
 
