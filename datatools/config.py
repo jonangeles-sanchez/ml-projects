@@ -23,5 +23,5 @@ from pathlib import Path
 
 class Config:
     def __init__(self):
-        self.SOURCE_PATH = Path("data", "orig")
+        self.SOURCE_PATH = Path("data", "source")
         self.TARGET_PATH = Path("data", "target")
