@@ -26,60 +26,13 @@ __copyright__ = "Copyright 2021, labesoft"
 __version__ = "1.0.0"
 
 import os
-import random
-import shutil
 from pathlib import Path
 
 import pandas as pd
 from imutils import paths
 
-import config
 
-
-def split_image_to_dir():
-    """This split dataset through copying image into folder
-
-    This is very ineffective.
-    """
-    original_paths = list(paths.list_images(config.INPUT_DATASET))
-    random.seed(7)
-    random.shuffle(original_paths)
-
-    index = int(len(original_paths) * config.TRAIN_SPLIT)
-    train_paths = original_paths[:index]
-    test_paths = original_paths[index:]
-
-    index = int(len(train_paths) * config.VAL_SPLIT)
-    val_paths = train_paths[:index]
-    train_paths = train_paths[index:]
-
-    datasets = [
-        ("training", train_paths, config.TRAIN_PATH),
-        ("validation", val_paths, config.VAL_PATH),
-        ("testing", test_paths, config.TEST_PATH)
-    ]
-
-    for set_type, orig_paths, base_path in datasets:
-        print(f'Building {set_type} set')
-
-        if not base_path.exists():
-            print(f'Building directory {base_path}')
-            os.makedirs(base_path)
-
-        for path in orig_paths:
-            file = path.split(os.path.sep)[-1]
-            label = file[-5:-4]
-
-            label_path = base_path.joinpath(label)
-            if not label_path.exists():
-                print(f'Building directory {label_path}')
-                os.makedirs(label_path)
-
-            new_path = label_path.joinpath(file)
-            shutil.copy2(path, new_path)
-
-
-def split_df_to_csv():
+def split_df_to_csv(config):
     """Splits image path to dataframes then exports the content to csv
 
     This creates a test set, a validation set and a train set, it also returns
@@ -87,21 +40,43 @@ def split_df_to_csv():
 
     :return: a tuple of the train, validation and test dataframe
     """
-    config.BASE_PATH.mkdir(exist_ok=True)
-    original_paths = pd.DataFrame(paths.list_images(config.INPUT_DATASET),
-                                  columns=['images'])
+    config.TARGET_PATH.mkdir(exist_ok=True)
+    original_paths = pd.DataFrame(
+        paths.list_images(config.SOURCE_PATH), columns=['images']
+    )
     train = original_paths.sample(frac=config.TRAIN_SPLIT, random_state=7)
 
     # Test set
     test = original_paths.drop(train.index)
-    test.to_csv((Path(config.BASE_PATH, 'test.csv')))
+    test.to_csv((Path(config.TARGET_PATH, 'test.csv')))
 
     # Valid set
     valid = train.sample(frac=config.VAL_SPLIT, random_state=7)
-    valid.to_csv(Path(config.BASE_PATH, 'valid.csv'))
+    valid.to_csv(Path(config.TARGET_PATH, 'valid.csv'))
 
     # Train set
     train = train.drop(valid.index)
-    train.to_csv((Path(config.BASE_PATH, 'train.csv')))
+    train.to_csv((Path(config.TARGET_PATH, 'train.csv')))
 
     return train, valid, test
+
+
+def read(csv_filename, config):
+    """Creates a dataframe from a csv file
+
+    :param config: a data config object that contains project paths
+    :param csv_filename: the csv file name
+    :return: the dataframe issued from the csv file
+    """
+    df = pd.read_csv(Path(config.TARGET_PATH, csv_filename))
+    df['labels'] = extract_labels(df)
+    return df
+
+
+def extract_labels(train_df):
+    """Extract class labels from the training set
+
+    :param train_df: the training set
+    :return: a set of the extracted class labels
+    """
+    return train_df['images'].apply(lambda x: str(x.split(os.path.sep)[-2]))

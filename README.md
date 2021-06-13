@@ -24,7 +24,7 @@ These machine learning projects were developed in Python.
 - [x] [Breast Cancer Classification with Deep Learning](cancerdetect)
 - [x] [Gender and Age Detection with OpenCV](genderage)
 - [x] [Image Segmentation with Machine Learning](imsegment)
-- [ ] Driver Drowsiness Detection System with OpenCV & Keras
+- [x] [Driver Drowsiness Detection System with OpenCV & Keras](drowsidrive)
 - [ ] Real-Time Human Detection & Counting
 
 ## Prerequisite

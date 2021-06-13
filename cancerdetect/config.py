@@ -17,12 +17,16 @@ __version__ = "1.0.0"
 
 from pathlib import Path
 
-INPUT_DATASET = Path("data", "orig")
+from datatools.dataconfig import DataConfig
 
-BASE_PATH = Path("data", "idc")
-TRAIN_PATH = BASE_PATH.joinpath("training")
-VAL_PATH = BASE_PATH.joinpath("validation")
-TEST_PATH = BASE_PATH.joinpath("testing")
 
-TRAIN_SPLIT = 0.8
-VAL_SPLIT = 0.1
+class CancerDetectConfig(DataConfig):
+    INPUT_DATASET = Path("data", "orig")
+
+    BASE_PATH = Path("data", "idc")
+    TRAIN_PATH = BASE_PATH.joinpath("training")
+    VAL_PATH = BASE_PATH.joinpath("validation")
+    TEST_PATH = BASE_PATH.joinpath("testing")
+
+    TRAIN_SPLIT = 0.8
+    VAL_SPLIT = 0.1
