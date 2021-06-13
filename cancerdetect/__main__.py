@@ -12,14 +12,11 @@ __date__ = "2021-05-27"
 __copyright__ = "Copyright 2021, labesoft"
 __version__ = "1.0.0"
 
-import os
 from collections import namedtuple
-from pathlib import Path
 
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from tensorflow.keras.optimizers import Adagrad
@@ -27,7 +24,9 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.python.keras.models import load_model
 from tensorflow.python.keras.utils.np_utils import to_categorical
 
-from cancerdetect import model, config
+from cancerdetect import model
+from cancerdetect.config import CancerDetectConfig
+from datatools import dataset
 
 BATCH_SIZE = 32
 INIT_LR = 1e-2
@@ -38,12 +37,15 @@ NUM_EPOCHS = 10
 Data = namedtuple('Data', ['gen', 'size'])
 
 
-def train_model():
-    """Train the model, plot epochs and evaluate the results"""
-    class_weight, train, val = prepare_train_data()
+def train_model(config):
+    """Train the model, plot epochs and evaluate the results
+
+    :param config: the paths configuration of the project
+    """
+    class_weight, train, val = prepare_train_data(config)
     cancer_model, m = create_model(class_weight, train, val)
     plot(m)
-    evaluate(cancer_model, prepare_test_data())
+    evaluate(cancer_model, prepare_test_data(config))
 
 
 def evaluate(cancer_model, test):
@@ -120,14 +122,15 @@ def create_model(class_weight, train, val):
     return cancer_model, m
 
 
-def prepare_train_data():
+def prepare_train_data(config):
     """Prepare all data needed to train a cancer detection model
 
+    :param config: the paths configuration of the project
     :return: a tuple of the class weight, train set and validation set iterators
     """
     # Datasets
-    train_df = read('train.csv')
-    val_df = read('valid.csv')
+    train_df = dataset.read('train.csv', config)
+    val_df = dataset.read('valid.csv', config)
 
     # Weights
     class_totals = to_categorical(train_df['labels']).sum(axis=0)
@@ -172,12 +175,13 @@ def prepare_train_data():
     )
 
 
-def prepare_test_data():
+def prepare_test_data(config):
     """Prepare data to test a model
 
+    :param config: the paths configuration of the project
     :return: the test set iterator
     """
-    test_df = read('test.csv')
+    test_df = dataset.read('test.csv', config)
     test_gen = ImageDataGenerator(rescale=1 / 255.0).flow_from_dataframe(
         test_df,
         x_col='images',
@@ -191,35 +195,16 @@ def prepare_test_data():
     return Data(test_gen, len(test_df))
 
 
-def extract_labels(train_df):
-    """Extract class labels from the training set
-
-    :param train_df: the training set
-    :return: a set of the extracted class labels
-    """
-    return train_df['images'].apply(lambda x: str(x.split(os.path.sep)[-2]))
-
-
-def read(csv):
-    """Creates a dataframe from a csv file
-
-    :param csv: the csv file name
-    :return: the dataframe issued from the csv file
-    """
-    df = pd.read_csv(Path(config.BASE_PATH, csv))
-    df['labels'] = extract_labels(df)
-    return df
-
-
-def test_model():
+def evaluate_model(config):
     """Test a breast cancer detection model loaded from file"""
     cancer_model = load_model(MODEL_FILENAME)
-    test = prepare_test_data()
+    test = prepare_test_data(config)
     evaluate(cancer_model, test)
 
 
 if __name__ == '__main__':
     """Main entry point of cancerdetect"""
-    # build_dataset.split()
-    # train_model()
-    test_model()
+    cancer_config = CancerDetectConfig()
+    # dataset.split_df_to_csv(cancer_config)
+    # train_model(cancer_config)
+    evaluate_model(cancer_config)

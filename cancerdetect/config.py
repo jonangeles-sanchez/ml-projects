@@ -15,14 +15,15 @@ __date__ = "2021-05-27"
 __copyright__ = "Copyright 2021, labesoft"
 __version__ = "1.0.0"
 
-from pathlib import Path
+from datatools.config import Config
 
-INPUT_DATASET = Path("data", "orig")
 
-BASE_PATH = Path("data", "idc")
-TRAIN_PATH = BASE_PATH.joinpath("training")
-VAL_PATH = BASE_PATH.joinpath("validation")
-TEST_PATH = BASE_PATH.joinpath("testing")
+class CancerDetectConfig(Config):
+    def __init__(self):
+        super(CancerDetectConfig, self).__init__()
+        self.TRAIN_PATH = self.TARGET_PATH.joinpath("training")
+        self.VALID_PATH = self.TARGET_PATH.joinpath("validation")
+        self.TEST_PATH = self.TARGET_PATH.joinpath("testing")
 
-TRAIN_SPLIT = 0.8
-VAL_SPLIT = 0.1
+        self.TRAIN_SPLIT = 0.8
+        self.VAL_SPLIT = 0.1
