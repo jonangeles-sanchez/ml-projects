@@ -29,7 +29,7 @@ class DrowsiDriveView:
         self.ddrive = ddrive
         self.white = (255, 255, 255)
         self.black = (0, 0, 0)
-        self.config = DrowsiDriveConfig
+        self.config = DrowsiDriveConfig()
 
         # Prepare video capture
         fcc = cv2.CascadeClassifier(str(self.config.FACE_CCLASS_PATH))

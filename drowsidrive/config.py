@@ -17,43 +17,45 @@ __version__ = "1.0.0"
 
 from pathlib import Path
 
-from datatools.dataconfig import DataConfig
+from datatools.config import Config
 
 
-class DrowsiDriveConfig(DataConfig):
+class DrowsiDriveConfig(Config):
     """Config class for the paths of the applciation"""
-    # Data path
-    SOURCE_PATH = Path("data", "orig")
-    TARGET_PATH = Path("data", "target")
-    TRAIN_PATH = TARGET_PATH.joinpath("training")
-    VAL_PATH = TARGET_PATH.joinpath("validation")
-    TEST_PATH = TARGET_PATH.joinpath("testing")
+    def __init__(self):
+        super(DrowsiDriveConfig, self).__init__()
+        # Data path
+        self.TRAIN_PATH = self.TARGET_PATH.joinpath("training")
+        self.VAL_PATH = self.TARGET_PATH.joinpath("validation")
+        self.TEST_PATH = self.TARGET_PATH.joinpath("testing")
 
-    # Data prepare
-    BATCH_SIZE = 32
-    TARGET_SIZE = (24, 24)
-    INPUT_SHAPE = TARGET_SIZE + (1,)
-    TRAIN_SPLIT = 1.0
-    VAL_SPLIT = 0.1
+        # Data prepare
+        self.BATCH_SIZE = 32
+        self.TARGET_SIZE = (24, 24)
+        self.INPUT_SHAPE = self.TARGET_SIZE + (1,)
+        self.TRAIN_SPLIT = 1.0
+        self.VAL_SPLIT = 0.1
 
-    # Model
-    MODEL_FILENAME = 'labesoft_cnn_cat2.h5'
-    MODEL_PATH = Path('models', MODEL_FILENAME)
+        # Model
+        self.MODEL_FILENAME = 'labesoft_cnn_cat2.h5'
+        self.MODEL_PATH = Path('models', self.MODEL_FILENAME)
 
-    # View Detection
-    EYE_OPEN = -1
-    NO_FACE = 0
-    BOTH_EYES_CLOSED = 1
-    LABELS = {
-        EYE_OPEN: 'Open',
-        NO_FACE: 'No Face Detected',
-        BOTH_EYES_CLOSED: 'Close'
-    }
-    CLASS_PATH = Path('haar cascade files')
-    FACE_CCLASS_PATH = CLASS_PATH.joinpath('haarcascade_frontalface_alt.xml')
-    RIGHT_EYE_CCLASS_PATH = CLASS_PATH.joinpath(
-        'haarcascade_righteye_2splits.xml'
-    )
-    LEFT_EYE_CCLASS_PATH = CLASS_PATH.joinpath(
-        'haarcascade_lefteye_2splits.xml'
-    )
+        # View Detection
+        self.EYE_OPEN = -1
+        self.NO_FACE = 0
+        self.BOTH_EYES_CLOSED = 1
+        self.LABELS = {
+            self.EYE_OPEN: 'Open',
+            self.NO_FACE: 'No Face Detected',
+            self.BOTH_EYES_CLOSED: 'Close'
+        }
+        self.CLASS_PATH = Path('haar cascade files')
+        self.FACE_CCLASS_PATH = self.CLASS_PATH.joinpath(
+            'haarcascade_frontalface_alt.xml'
+        )
+        self.RIGHT_EYE_CCLASS_PATH = self.CLASS_PATH.joinpath(
+            'haarcascade_righteye_2splits.xml'
+        )
+        self.LEFT_EYE_CCLASS_PATH = self.CLASS_PATH.joinpath(
+            'haarcascade_lefteye_2splits.xml'
+        )
