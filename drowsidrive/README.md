@@ -72,6 +72,6 @@ on your system, then using pip, you can install the necessary packages.
 
 - [x] Take image as input from a camera.
 - [x] Detect the face in the image and create a Region of Interest (ROI).
-– [x] Detect the eyes from ROI and feed it to the classifier.
-– [x] Classifier will categorize whether eyes are open or closed.
-– [x] Calculate score to check whether the person is drowsy.
+- [x] Detect the eyes from ROI and feed it to the classifier.
+- [x] Classifier will categorize whether eyes are open or closed.
+- [x] Calculate score to check whether the person is drowsy.
