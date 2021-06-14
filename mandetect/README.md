@@ -11,13 +11,21 @@ executed by drones and spares law enforcement officers for more groundwork task.
 
 ## About the project
 
-In this project, we have implemented a system which is able to detect and 
-count human from sequential frames from a specific angle of view of live 
-feed from a random city web cam
+In this project, we have implemented a system which is able to detect and count
+human from sequential frames from a specific angle of view of live feed from a
+random city web cam.
+
+### Histogram of Oriented Gradient Descriptor
+
+HOG is a feature descriptor used in computer vision and image processing for the
+purpose of object detection. This is one of the most popular techniques for
+object detection, to our fortune, OpenCV has already been implemented in an
+efficient way to combine the HOG Descriptor algorithm with Support Vector
+Machine or SVM.
 
 ## Prerequisite
 
-To understand the project it requires to have basic knowledge of python 
+To understand the project it requires to have basic knowledge of python
 programming and the OpenCV library. We will needed the following libraries:
 
     OpenCV: A strong library used for machine learning
@@ -31,7 +39,7 @@ To install the required library, run the following code in your terminal.
     pip install imutils
     pip install numpy
 
-Or you may have installed all this installing the conda env from this 
+Or you may have installed all this installing the conda env from this
 ml-projects environment.yml file which is largely enough.
 
 ## Project Plan
