@@ -6,6 +6,8 @@ Project structure
 *mandetect/*
     **__init__.py**:
         Real-time Human Detection & Counting
+    **__main__.py**:
+        The main of the Real-time Human Detection & Counting
 
 About this Module
 ------------------

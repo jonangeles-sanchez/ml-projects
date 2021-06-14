@@ -1,12 +1,6 @@
 """The main of the Real-time Human Detection & Counting
 -----------------------------
 
-Project structure
------------------
-*mandetect/*
-    **__main__.py**:
-        The main of the Real-time Human Detection & Counting
-
 About this Module
 ------------------
 The goal of this module is to launch the mandetect application from the python
