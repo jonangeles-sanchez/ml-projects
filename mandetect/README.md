@@ -7,7 +7,8 @@ concerned about safety issues, notably with last year public health issues.
 Considering the scenario of a crowded scene during the epidemic: a population
 density system analyzes the crowds and triggers a warning to divert the crowds
 when their population density exceeds the normal range. This could all be
-executed by drones and spares law enforcement officers for more groundwork task.
+executed by drones and it would spare law enforcement workforce for more 
+groundwork task.
 
 ## About the project
 
@@ -38,18 +39,21 @@ To install the required library, run the following code in your terminal.
     pip install opencv-python
     pip install imutils
     pip install numpy
+    pip install pafy
+    pip install youtube_dl
 
 Or you may have installed all this installing the conda env from this
 ml-projects environment.yml file which is largely enough.
 
 ## Project Plan
 
-- [ ] Import the libraries
-- [ ] Create a model which will detect Humans
-- [ ] Detect functionality
-- [ ] Human detector functionality
-- [ ] Detect by camera functionality
-- [ ] Detect by video path functionality
-- [ ] Detect by image path functionality
-- [ ] Parsing all arguments
-- [ ] The main function
+- [x] Import the libraries
+- [x] Create a model which will detect Humans
+- [x] Detect functionality
+- [x] Human detector functionality
+- [x] Detect by camera functionality
+- [x] Detect by video path functionality
+- [x] Detect by image path functionality
+- [x] Parsing all arguments
+- [x] The main function
+- [x] Test the system
