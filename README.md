@@ -25,7 +25,7 @@ These machine learning projects were developed in Python.
 - [x] [Gender and Age Detection with OpenCV](genderage)
 - [x] [Image Segmentation with Machine Learning](imsegment)
 - [x] [Driver Drowsiness Detection System with OpenCV & Keras](drowsidrive)
-- [ ] Real-Time Human Detection & Counting
+- [x] [Real-Time Human Detection & Counting](mandetect)
 
 ## Prerequisite
 
